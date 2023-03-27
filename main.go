@@ -1,21 +1,14 @@
 package main
 
 import (
-	"html/template"
 	"net/http"
-	"web_go/models"
+	"web_go/routes"
 
 	_ "github.com/lib/pq"
 )
 
-var temp = template.Must(template.ParseGlob("templates/*.html"))
-
+// Chamando função para carregar rotas e utilizar a porta
 func main() {
-	http.HandleFunc("/", index)
+	routes.CarregarRotas()
 	http.ListenAndServe(":8000", nil)
-}
-
-func index(w http.ResponseWriter, r *http.Request) {
-	todosOsProdutos := models.BuscaTodosProdutos()
-	temp.ExecuteTemplate(w, "Index", todosOsProdutos)
 }

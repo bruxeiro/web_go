@@ -6,6 +6,8 @@ import (
 	_ "github.com/lib/pq"
 )
 
+//Definido o tipo/modelo produto com seus dados principais
+
 type Produto struct {
 	Id         int
 	Nome       string
@@ -13,6 +15,8 @@ type Produto struct {
 	Preco      float64
 	Quantidade int
 }
+
+//Função para conexão com o banco de dados
 
 func BuscaTodosProdutos() []Produto {
 	db := db.ConectaComBancoDeDados()
@@ -22,6 +26,8 @@ func BuscaTodosProdutos() []Produto {
 		panic(err.Error())
 	}
 
+	//Criando um slice para o produto, adicionando os itens com id, nome, descrição, preço e quantidade.
+	//Por fim, adicionando-os no slice
 	p := Produto{}
 	produtos := []Produto{}
 
