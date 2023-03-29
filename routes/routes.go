@@ -8,4 +8,5 @@ import (
 // Função para carregar todas as rotas do site
 func CarregarRotas() {
 	http.HandleFunc("/", controlers.Index)
+	http.HandleFunc("/new", controlers.New)
 }
