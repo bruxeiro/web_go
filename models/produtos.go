@@ -82,3 +82,18 @@ func DeleteProduto(id string) {
 	//Fechando o banco de dados, boas praticas
 	db.Close()
 }
+
+func EditarProduto(id string) {
+
+	db := db.ConectaComBancoDeDados()
+	editarDadosBanco, err := db.Prepare("")
+
+	if err != nil {
+		panic(err.Error())
+
+		editarDadosBanco.Exec(id)
+
+		db.Close()
+	}
+
+}
