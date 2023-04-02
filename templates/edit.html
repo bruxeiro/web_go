@@ -12,7 +12,8 @@
                 <p class="lead">Insira os detalhes</p>
             </div>
         </div>
-        <form method="POST" action="insert">
+        <form method="POST" action="update">
+            <input type="hidden" name="id" value="{{.Id}}">
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group">
